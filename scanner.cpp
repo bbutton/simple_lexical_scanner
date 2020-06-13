@@ -9,11 +9,15 @@
 using namespace std;
 
 string Scanner::scan() {
-    int current = is.get();
-    if(current == EOF) return string();
-
     ostringstream buffer;
-    buffer << static_cast<char>(current);
+
+    int current = 0;
+    do {
+        current = is.get();
+        if (current == EOF) return buffer.str();
+
+        buffer << static_cast<char>(current);
+    } while(current != EOF);
 
     return buffer.str();
 }
