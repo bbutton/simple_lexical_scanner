@@ -44,6 +44,15 @@ void SingleCharacterFollowedByDigitReturnsSingleCharToken() {
     assert(result == "a");
 }
 
+void MultiCharacterStringTerminatedBySpaceReturnsToken() {
+    istringstream is("aasdfasdfa ");
+    Scanner scanner(is);
+
+    string result = scanner.scan();
+
+    assert(result == "aasdfasdfa");
+}
+
 int main(int argc, char ** argv) {
     EmptyInputReturnsEOF();
     SingleCharacterReturnedAsToken();
