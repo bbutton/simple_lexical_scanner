@@ -53,12 +53,23 @@ void MultiCharacterStringTerminatedBySpaceReturnsToken() {
     assert(result == "aasdfasdfa");
 }
 
+//void SingleDigitReturnsToken() {
+//    istringstream is("1");
+//    Scanner scanner(is);
+//
+//    string result = scanner.scan();
+//
+//    assert(result == "1");
+//}
+
 int main(int argc, char ** argv) {
     EmptyInputReturnsEOF();
     SingleCharacterReturnedAsToken();
     TwoCharactersReturnedAsSingleToken();
     SingleCharacterFollowedByDigitReturnsSingleCharToken();
     MultiCharacterStringTerminatedBySpaceReturnsToken();
+
+//    SingleDigitReturnsToken();
 
     return 0;
 }

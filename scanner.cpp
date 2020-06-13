@@ -9,6 +9,16 @@
 
 using namespace std;
 
+enum CharType { Char, Digit, Unknown = -1 };
+
+namespace {
+    CharType classifyCharacter(char c) {
+        if(isalpha(c)) return Char;
+        if(isdigit(c)) return Digit;
+        return Unknown;
+    }
+}
+
 string Scanner::scan() {
     ostringstream buffer;
 
@@ -18,10 +28,18 @@ string Scanner::scan() {
         current = is.get();
         next = is.peek();
 
-        if (current == EOF) return buffer.str();
+        CharType charType = classifyCharacter(static_cast<char>(current));
 
-        buffer << static_cast<char>(current);
-        if(isalpha(static_cast<char>(next)) == false) return buffer.str();
+        switch(charType) {
+            case Char:
+                buffer << static_cast<char>(current);
+                if(isalpha(static_cast<char>(next)) == false) return buffer.str();
+                break;
 
+            default:
+                return buffer.str();
+        }
     } while(current != EOF);
+
+    return string();
 }
