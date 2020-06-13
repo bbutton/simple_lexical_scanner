@@ -5,12 +5,17 @@
 #ifndef SIMPLE_LEXICAL_SCANNER_SCANNER_H
 #define SIMPLE_LEXICAL_SCANNER_SCANNER_H
 
+#include <iosfwd>
+#include <string>
 
 class Scanner {
 public:
-    Scanner() {}
+    Scanner(std::istringstream & is) : is(is) {}
 
-    const char * scan();
+    std::string scan();
+
+private:
+    std::istringstream & is;
 };
 
 
