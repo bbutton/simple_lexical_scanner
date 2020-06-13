@@ -9,12 +9,14 @@
 
 using namespace std;
 
-enum CharType { Char, Digit, Unknown = -1 };
+enum CharType { Char, Digit, Space, Unknown = -1 };
 
 namespace {
     CharType classifyCharacter(char c) {
         if(isalpha(c)) return Char;
         if(isdigit(c)) return Digit;
+        if(isspace(c)) return Space;
+
         return Unknown;
     }
 }
@@ -39,6 +41,9 @@ string Scanner::scan() {
             case Digit:
                 buffer << static_cast<char>(current);
                 if(isdigit(static_cast<char>(next)) == false) return buffer.str();
+                break;
+
+            case Space:
                 break;
 
             default:
