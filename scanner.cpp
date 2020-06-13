@@ -36,6 +36,10 @@ string Scanner::scan() {
                 if(isalpha(static_cast<char>(next)) == false) return buffer.str();
                 break;
 
+            case Digit:
+                buffer << static_cast<char>(current);
+                break;
+
             default:
                 return buffer.str();
         }

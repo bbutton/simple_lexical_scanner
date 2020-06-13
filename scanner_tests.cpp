@@ -53,14 +53,14 @@ void MultiCharacterStringTerminatedBySpaceReturnsToken() {
     assert(result == "aasdfasdfa");
 }
 
-//void SingleDigitReturnsToken() {
-//    istringstream is("1");
-//    Scanner scanner(is);
-//
-//    string result = scanner.scan();
-//
-//    assert(result == "1");
-//}
+void SingleDigitReturnsToken() {
+    istringstream is("1");
+    Scanner scanner(is);
+
+    string result = scanner.scan();
+
+    assert(result == "1");
+}
 
 int main(int argc, char ** argv) {
     EmptyInputReturnsEOF();
@@ -69,7 +69,7 @@ int main(int argc, char ** argv) {
     SingleCharacterFollowedByDigitReturnsSingleCharToken();
     MultiCharacterStringTerminatedBySpaceReturnsToken();
 
-//    SingleDigitReturnsToken();
+    SingleDigitReturnsToken();
 
     return 0;
 }
