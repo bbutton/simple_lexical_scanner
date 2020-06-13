@@ -38,6 +38,7 @@ string Scanner::scan() {
 
             case Digit:
                 buffer << static_cast<char>(current);
+                if(isdigit(static_cast<char>(next)) == false) return buffer.str();
                 break;
 
             default:

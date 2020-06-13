@@ -71,6 +71,15 @@ void MultipleDigitsReturnsToken() {
     assert(result == "13323");
 }
 
+void SingleDigitFollowedByAlphaReturnsDigitAsToken() {
+    istringstream is("1d");
+    Scanner scanner(is);
+
+    string result = scanner.scan();
+
+    assert(result == "1");
+}
+
 int main(int argc, char ** argv) {
     EmptyInputReturnsEOF();
 
@@ -81,6 +90,7 @@ int main(int argc, char ** argv) {
 
     SingleDigitReturnsToken();
     MultipleDigitsReturnsToken();
+    SingleDigitFollowedByAlphaReturnsDigitAsToken();
 
     return 0;
 }
