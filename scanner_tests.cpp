@@ -62,14 +62,25 @@ void SingleDigitReturnsToken() {
     assert(result == "1");
 }
 
+void MultipleDigitsReturnsToken() {
+    istringstream is("13323");
+    Scanner scanner(is);
+
+    string result = scanner.scan();
+
+    assert(result == "13323");
+}
+
 int main(int argc, char ** argv) {
     EmptyInputReturnsEOF();
+
     SingleCharacterReturnedAsToken();
     TwoCharactersReturnedAsSingleToken();
     SingleCharacterFollowedByDigitReturnsSingleCharToken();
     MultiCharacterStringTerminatedBySpaceReturnsToken();
 
     SingleDigitReturnsToken();
+    MultipleDigitsReturnsToken();
 
     return 0;
 }
