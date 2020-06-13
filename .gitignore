@@ -1,0 +1,5 @@
+.idea/
+scanner_tests
+simple_lexical_scanner
+*.o
+cmake-build-*/
