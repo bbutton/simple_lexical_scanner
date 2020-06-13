@@ -58,6 +58,7 @@ int main(int argc, char ** argv) {
     SingleCharacterReturnedAsToken();
     TwoCharactersReturnedAsSingleToken();
     SingleCharacterFollowedByDigitReturnsSingleCharToken();
+    MultiCharacterStringTerminatedBySpaceReturnsToken();
 
     return 0;
 }
